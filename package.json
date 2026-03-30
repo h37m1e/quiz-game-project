@@ -1,0 +1,17 @@
+{
+  "name": "quiz-game",
+  "version": "1.0.0",
+  "description": "Quiz game",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "node --watch src/index.js"
+  },
+  "keywords": ["quiz", "game"],
+  "author": "helmie",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
