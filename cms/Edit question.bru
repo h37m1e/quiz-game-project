@@ -1,0 +1,20 @@
+meta {
+  name: Edit question
+  type: http
+  seq: 1
+}
+
+put {
+  url: {{baseUrl}}/1
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "Question": "Intro",
+    "answer": "Overwritten",
+    "date": "2026-03-29",
+    "keywords": ["uef"]
+  }
+}

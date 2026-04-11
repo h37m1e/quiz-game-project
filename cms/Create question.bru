@@ -1,0 +1,19 @@
+meta {
+  name: Create question
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}
+  body: json
+  auth: none
+}
+
+body:json {
+  {"Question": "New", 
+  "date": "29-03-2026",
+  "answer": "-",
+  "keywords": ["uef"]
+  }
+}
