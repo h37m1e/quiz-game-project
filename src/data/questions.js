@@ -1,4 +1,4 @@
-const questions = [
+/* const questions = [
     {
       id: 1,
       Question: "What is the capital of Finland?",
@@ -30,3 +30,4 @@ const questions = [
   ];
   
   module.exports = questions;
+*/
