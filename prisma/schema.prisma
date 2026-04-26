@@ -6,6 +6,13 @@ datasource db {
   provider = "mysql"
   url      = env("DATABASE_URL")
 }
+model User {
+  id       Int    @id @default(autoincrement())
+  email    String @unique @db.VarChar(255)
+  password String @db.VarChar(255)
+  name     String @db.VarChar(100)
+  questions    Question[]
+}
 
 model Question {
   id       Int       @id @default(autoincrement())
@@ -13,6 +20,8 @@ model Question {
   answer  String    @db.Text
   subject    String    @db.VarChar(255)
   keywords Keyword[]
+  userId   Int
+  user     User @relation(fields: [userId], references: [id])
 
   @@map("Questions")
 }
