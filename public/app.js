@@ -345,7 +345,7 @@ async function showQuestionForm(qId) {
     errorEl.textContent = "";
 
     const body = new FormData();
-    body.append("question", document.getElementById("q-question").value);
+    body.append("title", document.getElementById("q-question").value);
     body.append("answer", document.getElementById("q-answer").value);
     body.append("keywords", document.getElementById("q-keywords").value);
     body.append("subject", document.getElementById("q-subject").value);
