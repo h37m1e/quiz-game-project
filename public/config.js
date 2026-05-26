@@ -1,5 +1,5 @@
 const CONFIG = {
-  API_URL: "http://localhost:3000",
+  API_URL: "https://quiz-game-project-production.up.railway.app/",
   ROUTES: {
     LOGIN: "/api/auth/login",
     REGISTER: "/api/auth/register",
@@ -8,7 +8,7 @@ const CONFIG = {
   FIELDS: {
     LOGIN: ["email", "password"],
     REGISTER: ["email", "password", "name"],
-    QUESTION: ["question", "answer", "keywords"],
+    QUESTION: ["title", "answer", "keywords"],
   },
   QUESTIONS_PER_PAGE: 5,
   STORAGE_KEY: "jwt_token",
