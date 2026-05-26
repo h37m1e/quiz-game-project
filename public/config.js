@@ -1,5 +1,5 @@
 const CONFIG = {
-  API_URL: "https://quiz-game-project-production.up.railway.app/",
+  API_URL: "",
   ROUTES: {
     LOGIN: "/api/auth/login",
     REGISTER: "/api/auth/register",
