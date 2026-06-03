@@ -13,6 +13,7 @@ const QuestionInput = z.object({
   title: z.string().min(1),
   subject: z.string().min(1),
   answer: z.string().min(1),
+  difficulty: z.enum(["easy", "medium", "hard"]).optional(),
   keywords: z.union([z.string(), z.array(z.string())]).optional(),
 });
 
@@ -118,14 +119,14 @@ router.get("/:qId", async (req, res) => {
 
 // POST /api/questions
 router.post("/", upload.single("image"), async (req, res) => {
-  const { title, subject, answer, keywords } = QuestionInput.parse(req.body);
+  const { title, subject, answer, keywords, difficulty } = QuestionInput.parse(req.body);
 
   const keywordsArray = Array.isArray(keywords) ? keywords : keywords ? [keywords] : [];
   const imageUrl = req.file ? `/uploads/${req.file.filename}` : null;
 
   const newQuestion = await prisma.question.create({
     data: {
-      question: title, subject, answer, imageUrl,
+      question: title, subject, answer, imageUrl, difficulty,
       userId: req.user.userId,
       keywords: {
         connectOrCreate: keywordsArray.map((kw) => ({
@@ -143,7 +144,7 @@ router.post("/", upload.single("image"), async (req, res) => {
 // PUT /api/questions/:qId
 router.put("/:qId", isOwner, upload.single("image"), async (req, res) => {
   const qId = Number(req.params.qId);
-  const { title, subject, answer, keywords } = QuestionInput.parse(req.body);
+  const { title, subject, answer, keywords, difficulty } = QuestionInput.parse(req.body);
 
   const existing = await prisma.question.findUnique({ where: { id: qId } });
   if (!existing) {
@@ -156,7 +157,7 @@ router.put("/:qId", isOwner, upload.single("image"), async (req, res) => {
   const updated = await prisma.question.update({
     where: { id: qId },
     data: {
-      question: title, subject, answer, imageUrl,
+      question: title, subject, answer, imageUrl, difficulty,
       keywords: {
         set: [],
         connectOrCreate: keywordsArray.map((kw) => ({
