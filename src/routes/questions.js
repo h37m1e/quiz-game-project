@@ -44,9 +44,9 @@ const upload = multer({
 function formatQuestion(question) {
   return {
     ...question,
-    keywords: question.keywords.map((k) => k.name),
+    keywords: (question.keywords ?? []).map(k => k.name),
     userName: question.user?.name || null,
-    attempted: question.attempts?.some(a => a.correct),
+    attempted: (question.attempts ?? []).some(a => a.correct),
     attemptCount: question._count?.attempts ?? 0,
     user: undefined,
     _count: undefined,
