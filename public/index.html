@@ -101,7 +101,8 @@
     }
 
     .form-group input,
-    .form-group textarea {
+    .form-group textarea
+    .form-group select {
       width: 100%;
       padding: 0.7rem 1rem;
       background: rgba(255, 255, 255, 0.08);
@@ -293,6 +294,29 @@
       box-shadow: 0 0 12px rgba(81, 207, 102, 0.3);
       animation: badge-glow 2s ease-in-out infinite alternate;
     }
+    .badge-difficulty {
+  padding: 0.2rem 0.7rem;
+  border-radius: 20px;
+  font-size: 0.7rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+  .badge-easy   { 
+    background: rgba(81, 207, 102, 0.2); 
+    color: #51cf66; 
+    border: 1px solid rgba(81, 207, 102, 0.35);
+   }
+  .badge-medium {
+    background: rgba(255, 210,   0, 0.2);
+    color: #ffd200; 
+    border: 1px solid rgba(255, 210, 0, 0.35);
+   }
+  .badge-hard   { 
+    background: rgba(255, 107, 107, 0.2); 
+    color: #ff6b6b; 
+    border: 1px solid rgba(255, 107, 107, 0.35); }
 
     @keyframes badge-glow {
       from { box-shadow: 0 0 8px rgba(81, 207, 102, 0.2); }
@@ -388,6 +412,47 @@
       color: #999;
       border: 1px solid rgba(255, 255, 255, 0.1);
     }
+    .btn-csv {
+  background: rgba(255, 210, 0, 0.12);
+  color: #ffd200;
+  border: 1px solid rgba(255, 210, 0, 0.25);
+  padding: 0.65rem 1.2rem;
+  font-size: 0.9rem;
+  font-weight: 800;
+  border-radius: 12px;
+}
+
+.btn-csv:hover {
+  background: rgba(255, 210, 0, 0.22);
+  box-shadow: 0 0 12px rgba(255, 210, 0, 0.2);
+}
+
+.csv-preview-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+
+.csv-preview-table th,
+.csv-preview-table td {
+  padding: 0.6rem 0.8rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  text-align: left;
+  color: #ccc;
+}
+
+.csv-preview-table th {
+  background: rgba(255, 255, 255, 0.06);
+  color: #ffd200;
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.5px;
+}
+
+.csv-preview-table tr:hover td {
+  background: rgba(255, 255, 255, 0.03);
+}
 
     .btn-clear:hover {
       background: rgba(255, 255, 255, 0.12);
@@ -594,6 +659,7 @@
       padding: 2rem;
       color: #888;
     }
+    
   </style>
 </head>
 <body>
